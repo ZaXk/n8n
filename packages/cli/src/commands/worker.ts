@@ -46,7 +46,7 @@ export class Worker extends BaseCommand {
 	static flags = {
 		help: Flags.help({ char: 'h' }),
 		concurrency: Flags.integer({
-			default: 10,
+			default: config.getEnv('executions.concurrency'),
 			description: 'How many jobs can run in parallel.',
 		}),
 	};
