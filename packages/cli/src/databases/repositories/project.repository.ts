@@ -9,10 +9,29 @@ export class ProjectRepository extends Repository<Project> {
 	}
 
 	async getPersonalProjectForUser(userId: string) {
-		return await this.findOne({ where: { projectRelations: { userId } } });
+		return await this.findOne({
+			where: {
+				type: 'personal',
+				projectRelations: { userId },
+			},
+		});
 	}
 
 	async getPersonalProjectForUserOrFail(userId: string) {
-		return await this.findOneOrFail({ where: { projectRelations: { userId } } });
+		return await this.findOneOrFail({
+			where: {
+				type: 'personal',
+				projectRelations: { userId },
+			},
+		});
+	}
+
+	async getPersonalProjectForUsers(userIds: string[]) {
+		return await this.find({
+			where: {
+				type: 'personal',
+				projectRelations: { userId: In(userIds) },
+			},
+		});
 	}
 }
