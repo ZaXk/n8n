@@ -9,10 +9,10 @@ const projectRelationTable = 'project_relation';
 
 type Table = 'shared_workflow' | 'shared_credentials';
 
-const resourceIdColumns: Record<Table, string> = {
-	shared_credentials: 'credentialsId',
-	shared_workflow: 'workflowId',
-};
+// const resourceIdColumns: Record<Table, string> = {
+// 	shared_credentials: 'credentialsId',
+// 	shared_workflow: 'workflowId',
+// };
 
 export class CreateProject1705928727784 implements IrreversibleMigration {
 	async setupTables({ schemaBuilder: { createTable, column } }: MigrationContext) {
@@ -48,7 +48,7 @@ export class CreateProject1705928727784 implements IrreversibleMigration {
 			escape,
 			isMysql,
 			runQuery,
-			schemaBuilder: { addForeignKey, addColumns, createIndex, column, dropIndex },
+			schemaBuilder: { addForeignKey, addColumns, createIndex, column },
 		}: MigrationContext,
 	) {
 		// Add projectId column, this is set to a blank string by default because it's a primary key
