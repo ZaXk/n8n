@@ -182,7 +182,7 @@ export const routes = [
 		},
 	},
 	{
-		path: '/credentials',
+		path: '/projects/:projectId/credentials',
 		name: VIEWS.CREDENTIALS,
 		components: {
 			default: CredentialsView,
@@ -213,7 +213,7 @@ export const routes = [
 		},
 	},
 	{
-		path: '/workflows',
+		path: '/projects/:projectId/workflows',
 		name: VIEWS.WORKFLOWS,
 		components: {
 			default: WorkflowsView,
@@ -224,7 +224,7 @@ export const routes = [
 		},
 	},
 	{
-		path: '/workflow/:name/debug/:executionId',
+		path: '/projects/:projectId/workflow/:name/debug/:executionId',
 		name: VIEWS.EXECUTION_DEBUG,
 		components: {
 			default: NodeView,
@@ -243,7 +243,7 @@ export const routes = [
 		},
 	},
 	{
-		path: '/workflow/:name/executions',
+		path: '/projects/:projectId/workflow/:name/executions',
 		name: VIEWS.WORKFLOW_EXECUTIONS,
 		components: {
 			default: WorkflowExecutionsList,
@@ -280,7 +280,7 @@ export const routes = [
 		],
 	},
 	{
-		path: '/workflow/:workflowId/history/:versionId?',
+		path: '/projects/:projectId/workflow/:workflowId/history/:versionId?',
 		name: VIEWS.WORKFLOW_HISTORY,
 		components: {
 			default: WorkflowHistory,
@@ -326,7 +326,7 @@ export const routes = [
 		},
 	},
 	{
-		path: '/workflow/new',
+		path: '/projects/:projectId/workflow/new',
 		name: VIEWS.NEW_WORKFLOW,
 		components: {
 			default: NodeView,
@@ -350,7 +350,7 @@ export const routes = [
 		},
 	},
 	{
-		path: '/workflow/:name',
+		path: '/projects/:projectId/workflow/:name',
 		name: VIEWS.WORKFLOW,
 		components: {
 			default: NodeView,
@@ -364,8 +364,8 @@ export const routes = [
 		},
 	},
 	{
-		path: '/workflow',
-		redirect: '/workflow/new',
+		path: '/projects/:projectId/workflow',
+		redirect: '/projects/:projectId/workflow/new',
 	},
 	{
 		path: '/signin',
